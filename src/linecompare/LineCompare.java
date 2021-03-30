@@ -1,14 +1,23 @@
 package linecompare;
 import java.util.Scanner;
 public class LineCompare {
+	
+	static boolean CheckEquality(double LenthOfLine1 , double LenthOfLine2) {
+		
+		if(LenthOfLine1==LenthOfLine2) 
+			return true;
+		return false;
+	}
+
 
 	public static void main(String[] args) {
 		System.out.println("***Welcome To The Line Compare Computation Problem***");
 		
 		Scanner sc = new Scanner(System.in);
-		//Variables
+		//Variables for first line
 		int x1 , y1 , x2 , y2 ;
-		double LenthOfLine;
+		double LenthOfLine1, LenthOfLine2;
+		// Points for line 1
 		
 		System.out.println("Enter X1 Point");
 		x1 = sc.nextInt();
@@ -19,13 +28,35 @@ public class LineCompare {
 		System.out.println("Enter Y2 Point");
 		y2 = sc.nextInt();
 	
-		//Computation
-		//LenthOfLine = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
-		LenthOfLine = Math.sqrt((x2-x1)^2 + (y2-y1)^2);
-
-		System.out.println(" Lenth Of Line is : "+"("+x1+","+y1+"),"+"("+x2+","+y2+")===>" + LenthOfLine);
-	
+		//Computation for line 1
+		LenthOfLine1 = Math.sqrt((x2-x1)^2 + (y2-y1));
+		
+		
+		// Variables for seconds line
+		int x3 , y3, x4 , y4 ;
+		// Points for line 2
+		System.out.println("Enter X3 Point");
+		x3 = sc.nextInt();
+		System.out.println("Enter Y3 Point");
+		y3 = sc.nextInt();
+		System.out.println("Enter X4 Point");
+		x4 = sc.nextInt();
+		System.out.println("Enter Y4 Point");
+		y4 = sc.nextInt();
+		
+		LenthOfLine2 = Math.sqrt((x4-x3)^2 + (y4-y3));
+		
+		System.out.println(" Lenth Of Line 1 is : "+"("+x1+","+y1+"),"+"("+x2+","+y2+")===>" + LenthOfLine1);
+		System.out.println(" Lenth Of Line 2 is : "+"("+x3+","+y3+"),"+"("+x4+","+y4+")===>" + LenthOfLine2);
+		
+		boolean Equals =CheckEquality(LenthOfLine1,LenthOfLine2);
+		if(Equals)
+			System.out.println("Both Lines Are Equals");
+		else
+			System.out.println("Both Lines Are Not Equals");
 		
 	}
+	
+	
 
 }
